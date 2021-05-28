@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WVS</string>
+    <string name="app_name">In Time</string>
 
     <string name="to_start_please_enter_these_informations">To start, Please enter these informations :</string>
     <string name="in_km_h">KM/H</string>
@@ -14,4 +14,5 @@
     <string name="english_deutsche">English/Deutsche</string>
     <string name="change_language">Language</string>
     <string name="calculate">Calculate !</string>
+    <string name="copyrights">© Copyrights ©</string>
 </resources>

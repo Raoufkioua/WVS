@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import android.os.LocaleList
@@ -17,8 +18,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import java.math.RoundingMode
-import java.text.DecimalFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +40,43 @@ class MainActivity : AppCompatActivity() {
         val average_spped = findViewById<EditText>(R.id.speedaverege)
         var chargetime = findViewById<EditText>(R.id.car_charge_time)
         val changeLangButton: Button = findViewById(R.id.buttonChangeLang)
+        val copyriths: Button = findViewById(R.id.copyrithes)
+        val mytest =
+            "Share with us your Feedback, so we can make the In Time application better.\n" +
+                    "Qend your feedback to this E-mail:\n" +
+                    "youssefdaly47@gmail.com\n" +
+                    "Or call us simply on this number: +49 178 30100506\n" +
+                    "Monday: 09h00 to 17h00\n" +
+                    "Tuesday: 09h00 to 17h00\n" +
+                    "Wednesday: 09h00 to 17h00\n" +
+                    "Thursday: 09h00 to 17h00\n" +
+                    "Friday: 09h00 to 17h00\n"
+        val mytest2 =
+            "Teilen Sie uns Ihr Feedback mit, damit wir die In Time App für Sie verbessern können.\n" +
+                    "Ihr Feedback an diese E-mail schicken:\n" +
+                    "youssefdaly47@gmail.com\n" +
+                    "Oder rufen Sie uns einfach unter der Telefonnummer: +49 178 30100506\n" +
+                    "In den folgenden Sprechzeiten:\n" +
+                    "Montag: 09h00 to 17h00\n" +
+                    "Dienstag: 09h00 to 17h00\n" +
+                    "Mittwoch: 09h00 to 17h00\n" +
+                    "Donnerstag: 09h00 to 17h00\n" +
+                    "Freitag: 09h00 to 17h00\n"
+
+        if (Resources.getSystem().configuration.locale.equals("en")) {
+
+            copyriths.setOnClickListener {
+                withCustomStyle1(it, mytest)
+
+            }
+        } else {
+
+            copyriths.setOnClickListener {
+                withCustomStyle1(it, mytest2)
+
+            }
+        }
+
 
         changeLangButton.setOnClickListener {
             val languages = arrayOf("English", "Deutsche")
@@ -50,9 +86,11 @@ class MainActivity : AppCompatActivity() {
                 when (selection) {
                     0 -> {
                         setLocale("en")
+
                     }
                     1 -> {
                         setLocale("de")
+
                     }
 
                 }
@@ -173,7 +211,7 @@ class MainActivity : AppCompatActivity() {
                         Counter += 1
                     }
                     Result = (((Counter * TimeToCharging).toDouble()) +
-                            (((AutonomyValue * KmPerMinute).toDouble())/ 60)).toString()
+                            (((AutonomyValue * KmPerMinute).toDouble()) / 60)).toString()
                     withCustomStyle(it, " $Result Hours includes  $Counter Breaks  !")
 
                 }
@@ -209,6 +247,15 @@ class MainActivity : AppCompatActivity() {
         with(builder)
         {
             setTitle(getString(R.string.alert_title))
+            setMessage(message)
+            show()
+        }
+    }
+
+    private fun withCustomStyle1(view: View, message: String) {
+        val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
+        with(builder)
+        {
             setMessage(message)
             show()
         }

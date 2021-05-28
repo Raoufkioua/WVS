@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
 
             copyriths.setOnClickListener {
-                if (Resources.getSystem().configuration.locale.equals("de")){
+                if (Locale.getDefault().language.equals("de")){
                     withCustomStyle1(it, mytest2)
 
                 }

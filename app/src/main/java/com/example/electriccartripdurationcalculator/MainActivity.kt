@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         val copyriths: Button = findViewById(R.id.copyrithes)
         val mytest =
             "Share with us your Feedback, so we can make the In Time application better.\n" +
-                    "Qend your feedback to this E-mail:\n" +
+                    "Send your feedback to this E-mail:\n" +
                     "youssefdaly47@gmail.com\n" +
                     "Or call us simply on this number: +49 178 30100506\n" +
                     "Monday: 09h00 to 17h00\n" +

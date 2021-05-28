@@ -63,19 +63,23 @@ class MainActivity : AppCompatActivity() {
                     "Donnerstag: 09h00 to 17h00\n" +
                     "Freitag: 09h00 to 17h00\n"
 
-        if (Resources.getSystem().configuration.locale.equals("en")) {
+
 
             copyriths.setOnClickListener {
-                withCustomStyle1(it, mytest)
+                if (Resources.getSystem().configuration.locale.equals("de")){
+                    withCustomStyle1(it, mytest2)
+
+                }
+                else{
+                    withCustomStyle1(it, mytest)
+                }
+
 
             }
-        } else {
 
-            copyriths.setOnClickListener {
-                withCustomStyle1(it, mytest2)
 
-            }
-        }
+
+
 
 
         changeLangButton.setOnClickListener {
